@@ -1,0 +1,7 @@
+{
+  "path": "/api/devops/pipeline",
+  "body": {
+    "text": "{\"jobs\": [{\"id\": \"build\", \"needs\": [], \"duration\": 5}, {\"id\": \"test\", \"needs\": [\"build\"], \"duration\": 10}]}",
+    "workers": 2
+  }
+}

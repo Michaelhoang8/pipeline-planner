@@ -1,0 +1,32 @@
+{
+  "app": "pipeline-planner",
+  "mode": "pipeline",
+  "source": "Michaelhoang8/portfolio-lab",
+  "backend_definitions": {
+    "capabilities": [
+      "enrich",
+      "table"
+    ],
+    "devops_apps": [
+      "document",
+      "obj",
+      "pipeline"
+    ],
+    "validation": [
+      "ConflictError",
+      "NotFoundError",
+      "ValidationError",
+      "integer"
+    ],
+    "json_input": [
+      "decode",
+      "read_exact"
+    ],
+    "db": [
+      "SCHEMA",
+      "connect",
+      "initialize",
+      "rows"
+    ]
+  }
+}
