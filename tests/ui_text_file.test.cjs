@@ -26,7 +26,7 @@ function appHarness(name){
   function element(){return {value:'',files:[],handlers:{},dataset:{},classList:{toggle(){}},
     addEventListener(type,callback){this.handlers[type]=callback;},setAttribute(){},querySelectorAll(){return [];}};}
   const get=selector=>{if(!elements.has(selector))elements.set(selector,element());return elements.get(selector);};
-  const context=vm.createContext({document:{querySelector:get,querySelectorAll:selector=>selector.startsWith('textarea')?[get('#source')]:[],dispatchEvent(){}},
+  const context=vm.createContext({document:{addEventListener(){},querySelector:get,querySelectorAll:selector=>selector.startsWith('textarea')?[get('#source')]:[],dispatchEvent(){}},
     window:{designIdentity(){},analysisEmpty(){return '';},addEventListener(){},localTextFile:{read:()=>new Promise((resolve,reject)=>pending.push({resolve,reject}))}},
     location:{hash:''},Event,console});
   vm.runInContext(fs.readFileSync(path.join(__dirname,`../portfolio/static/${name}.js`),'utf8'),context);

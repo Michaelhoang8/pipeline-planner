@@ -13,9 +13,15 @@ python run.py
 ```
 
 Open http://127.0.0.1:8000/. Use `python run.py --port 8001` to run alongside another app.
-Use the built-in **Load sample** / **Load an example** action for fictional input.
+The app initially simulates a built-in fictional pipeline. Open **Edit pipeline** to change its JSON or load another file.
 
 The local adapter creates an empty `data/pipeline-planner.db`; this analysis app has no persistent tables. The data directory is ignored by Git. `--database /path/to/app.db` selects another database. Uploaded analysis input is processed in memory. No other repository or shared service is required.
+
+## Interface
+
+The main view is a dependency graph arranged by dependency depth. Select a job with the pointer or Enter/Space to inspect its status, schedule, attempts, and dependencies. Graph, Timeline, and Details views share the same simulation; Details retains capacity comparisons and queue/retry timing. Pipeline JSON and worker count live in a dialog that closes after a successful run. Invalid input keeps the editor open and disables exports. Wide graphs and tables scroll within their panels on mobile.
+
+The request lifecycle still supports cancellation, timeout handling, and input-preserving errors. No pipeline commands are executed.
 
 ## API example
 
